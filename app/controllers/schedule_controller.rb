@@ -1,3 +1,5 @@
+require 'json'
+
 module Mailvin
   module Web
     class ScheduleController < Sinatra::Base
