@@ -17,7 +17,7 @@ module Mailvin
         data[:text] = "Sent auto follow up email to #{params['to']}"
         data[:html] = "Sent auto follow up email to #{params['to']}"
         RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1"\
-          "@api.mailgun.net/v2/samples.mailgun.org/messages" , data
+          "@api.mailgun.net/v2/mailvin.mailgun.org/messages" , data
         data = Multimap.new
         data[:from] = params['from']
         data[:to] = params['to']
