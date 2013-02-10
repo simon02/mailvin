@@ -9,9 +9,11 @@ module Mailvin
 
       post '/' do
         puts 'schedule controller post received'
-        puts
+        headers = JSON.parse(params['message_headers'])
+        p headers
+        to = headers['to']
         data = Multimap.new
-        data[:from] = params['message-headers']['bcc']
+        data[:from] = params['recipient']
         data[:to] = params['from']
         data[:subject] = "Follow up email sent to #{params['recipient']}"
         data[:text] = "Sent auto follow up email to #{params['recipient']}"
