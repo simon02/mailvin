@@ -1,6 +1,6 @@
 module Mailvin
   module Web
-    class ScheduleController
+    class ScheduleController < Sinatra::Base
 
       get '/' do
         puts 'schedule controller get received'
