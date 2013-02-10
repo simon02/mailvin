@@ -14,12 +14,13 @@ module Mailvin
         puts params['message-headers']
         headers = JSON.parse(params['message-headers'])
         # find to as a numbnut idiot w two left hands
-        to = headers.each do |header|
-          key, value = header
-          if key == 'to'
-            return value
-          end
-        end
+        # to = headers.each do |header|
+        #   key, value = header
+        #   if key == 'to'
+        #     return value
+        #   end
+        # end
+        to = 'simon@piesync.com'
         data = Multimap.new
         data[:from] = params['recipient']
         data[:to] = params['from']
