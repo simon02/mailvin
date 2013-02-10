@@ -13,8 +13,13 @@ module Mailvin
         puts 'schedule controller post received'
         puts params['message-headers']
         headers = JSON.parse(params['message-headers'])
-        p headers
-        to = headers['to']
+        # find to as a numbnut idiot w two left hands
+        to = headers.each do |header|
+          key, value = header
+          if key == 'to'
+            return value
+          end
+        end
         data = Multimap.new
         data[:from] = params['recipient']
         data[:to] = params['from']
