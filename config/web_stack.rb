@@ -7,7 +7,7 @@ Mailvin::Web::RACK = Rack::Builder.app do
   use Rack::Deflater
 
   # Log all exceptions to Airbrake in production
-  use Rack::Exceptional, $env::EXCEPTIONAL_KEY if $env.production? || $env.staging?
+  # use Rack::Exceptional, $env::EXCEPTIONAL_KEY if $env.production? || $env.staging?
 
   # Shortcuts static files (assets)
   # So these requests don't have to go through the entire stack
