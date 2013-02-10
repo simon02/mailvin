@@ -11,7 +11,7 @@ module Mailvin
 
       post '/' do
         puts 'schedule controller post received'
-        params params['message-headers']
+        puts params['message-headers']
         headers = JSON.parse(params['message-headers'])
         p headers
         to = headers['to']
