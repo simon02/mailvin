@@ -22,6 +22,10 @@ gem 'rack-flash3', :require => 'rack-flash'
 # active support for cool stuff
 gem 'activesupport', :require => 'active_support'
 
+# sending mails via mailgun
+gem 'rest-client'
+gem 'multimap'
+
 # views
 gem 'mustache'
 
