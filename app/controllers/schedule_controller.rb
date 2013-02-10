@@ -9,6 +9,7 @@ module Mailvin
 
       post '/' do
         puts 'schedule controller post received'
+        p params
         []
       end
 
