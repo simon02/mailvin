@@ -25,7 +25,7 @@ module Mailvin
         data[:text] = 'follow up email'
         data[:html] = 'follow up email'
         RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1"\
-          "@api.mailgun.net/v2/samples.mailgun.org/messages" , data
+          "@api.mailgun.net/v2/mailvin.mailgun.org/messages" , data
         'success'
       end
 
