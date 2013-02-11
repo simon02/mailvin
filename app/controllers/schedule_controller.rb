@@ -17,7 +17,7 @@ module Mailvin
         to = headers.find { |header|
           key, value = header
           key == 'To'
-        }.first()
+        }.last()
         p 'recipient' + params['recipient']
         p 'from' + params['from']
         p 'to' + to
