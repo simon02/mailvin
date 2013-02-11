@@ -16,9 +16,7 @@ module Mailvin
         # find to as a numbnut idiot w two left hands
         to = headers.find { |header|
           key, value = header
-          if key == 'To'
-            return value
-          end
+          key == 'To'
         }.first()
         p 'recipient'
         p params['recipient']
