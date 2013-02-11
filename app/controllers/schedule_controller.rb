@@ -18,27 +18,23 @@ module Mailvin
           key, value = header
           key == 'To'
         }.last()
-        p 'recipient' + params['recipient']
-        p 'from' + params['from']
-        p 'to' + to
-        puts 'that is all'
-        # data = Multimap.new
-        # data[:from] = params['recipient']
-        # data[:to] = params['from']
-        # data[:subject] = "Follow up email sent to #{to}"
-        # data[:text] = "Sent auto follow up email to #{to}"
-        # data[:html] = "Sent auto follow up email to #{to}"
-        # p data
-        # RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1@api.mailgun.net/v2/mailvin.mailgun.org/messages", data
-        # data = Multimap.new
-        # data[:from] = params['from']
-        # data[:to] = to
-        # data[:subject] = "RE: #{params['subject']}"
-        # data[:text] = 'follow up email'
-        # data[:html] = 'follow up email'
-        # p data
-        # RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1@api.mailgun.net/v2/mailvin.mailgun.org/messages", data
-        # 'success'
+        data = Multimap.new
+        data[:from] = params['recipient']
+        data[:to] = params['from']
+        data[:subject] = "Follow up email sent to #{to}"
+        data[:text] = "Sent auto follow up email to #{to}"
+        data[:html] = "Sent auto follow up email to #{to}"
+        p data
+        RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1@api.mailgun.net/v2/mailvin.mailgun.org/messages", data
+        data = Multimap.new
+        data[:from] = params['from']
+        data[:to] = to
+        data[:subject] = "RE: #{params['subject']}"
+        data[:text] = 'follow up email'
+        data[:html] = 'follow up email'
+        p data
+        RestClient.post "https://api:key-2gwv182xi8z31rlelm54i61qsnxtk9-1@api.mailgun.net/v2/mailvin.mailgun.org/messages", data
+        'success'
       end
 
     end
