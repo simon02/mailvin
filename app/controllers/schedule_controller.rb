@@ -18,12 +18,9 @@ module Mailvin
           key, value = header
           key == 'To'
         }.first()
-        p 'recipient'
-        p params['recipient']
-        p 'from'
-        p params['from']
-        p 'to'
-        p to
+        p 'recipient' + params['recipient']
+        p 'from' + params['from']
+        p 'to' + to
         puts 'that is all'
         # data = Multimap.new
         # data[:from] = params['recipient']
