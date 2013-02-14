@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'rake'
 
 gem 'datamapper'
+gem 'dm-postgres-adapter'
 
 # used server
 gem 'unicorn'
@@ -29,15 +30,7 @@ gem 'multimap'
 # views
 gem 'mustache'
 
-group :production do
-  gem 'dm-postgres-adapter'
-end
-
 group :development do
-  # sqlite database
-  gem 'sqlite3'
-  gem 'dm-sqlite-adapter'
-
   # used server
   gem 'thin'
 
