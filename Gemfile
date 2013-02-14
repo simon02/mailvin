@@ -4,7 +4,11 @@ gem 'sinatra'
 gem 'rake'
 
 gem 'datamapper'
+gem 'dm-types'
 gem 'dm-postgres-adapter'
+
+gem 'multi_json'
+gem 'oj'
 
 # used server
 gem 'unicorn'

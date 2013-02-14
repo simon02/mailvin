@@ -37,6 +37,15 @@ module Mailvin
         'success'
       end
 
+      post '/' do
+        headers = Hash[MultiJson.parse(params['message-headers'])]
+        from, to = params[:from], headers['To']
+        account = authenticate!(from)
+        schedule_name = params[:recipient].split("@").first
+        schedule = account.schedule schedule_name
+        schedule.generate \
+          to: to, from: from, subject: params[:subject],
+      end
     end
   end
 end

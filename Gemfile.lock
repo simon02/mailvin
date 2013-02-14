@@ -90,6 +90,7 @@ GEM
     multi_json (1.5.0)
     multimap (1.1.2)
     mustache (0.99.4)
+    oj (1.4.4)
     pry (0.9.11.4)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -136,12 +137,15 @@ DEPENDENCIES
   activesupport
   datamapper
   dm-postgres-adapter
+  dm-types
   foreman (= 0.25.0)
   guard
   guard-coffeescript
   guard-sass
+  multi_json
   multimap
   mustache
+  oj
   rack (= 1.4)
   rack-contrib
   rack-flash3
