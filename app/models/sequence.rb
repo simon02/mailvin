@@ -5,8 +5,9 @@ module Mailvin
       include DataMapper::Resource
       storage_names[:default] = 'sequences'
 
-      belongs_to :schedule
-      has_many :emails
+      belongs_to :mailbox
+      belongs_to :schedule, required: false
+      has n, :emails
 
       property :id, Serial
     end

@@ -1,0 +1,27 @@
+<% if flash.has? :error %>
+  <div id="flash-error" class="alert alert-error">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Oops!</strong> <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash.has? :success %>
+  <div id="flash-success" class="alert alert-success">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Yay!</strong> <%= flash[:success] %>
+  </div>
+<% end %>
+
+<% if flash.has? :warning %>
+  <div id="flash-warning" class="alert">
+    <a class="close" data-dismiss="alert">×</a>
+    <strong>Warning!</strong> <%= flash[:warning] %>
+  </div>
+<% end %>
+
+<% if flash.has? :info %>
+  <div id="flash-info" class="alert alert-info">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= flash[:info] %>
+  </div>
+<% end %>

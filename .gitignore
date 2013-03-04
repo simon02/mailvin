@@ -1,2 +1,7 @@
-bin/
-.bundle/
+node_modules
+temp
+dist
+.sass-cache
+app/components
+bin
+.bundle

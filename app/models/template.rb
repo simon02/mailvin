@@ -6,10 +6,12 @@ module Mailvin
       storage_names[:default] = 'templates'
 
       belongs_to :schedule
+      has n, :emails
 
-      property :delay_type, Enum(:precise, :scheduled)
+      property :id, Serial
+      property :delay_type, Enum[:precise, :scheduled]
       property :precise_delay, Integer
-      property :scheduled_delay
+      property :scheduled_delay, Integer
       property :text, Text
 
       def generate properties, time = Time.now
