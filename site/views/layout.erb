@@ -1,0 +1,116 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/site.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/widget_box.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+
+
+        <div id="header">
+            <h1><a href="./dashboard.html">Unicorn Admin</a></h1>
+        </div>
+
+        <div id="search">
+            <input type="text" placeholder="Search here..."><button type="submit" class="tip-right" data-original-title="Search"><i class="icon-search icon-white"></i></button>
+        </div>
+        <div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
+                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">new message</a></li>
+                        <li><a class="sInbox" title="" href="#">inbox</a></li>
+                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                        <li><a class="sTrash" title="" href="#">trash</a></li>
+                    </ul>
+                </li>
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+            </ul>
+        </div>
+
+        <div id="sidebar">
+            <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+            <ul style="display: block;">
+                <li class="active">
+                    <a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Mailboxes</span></a>
+                </li>
+                <li>
+                    <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Templates</span></a>
+                </li>
+                <li>
+                    <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Settings</span></a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div id="style-switcher">
+            <i class="icon-arrow-left icon-white"></i>
+            <span>Style:</span>
+            <a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#blue" style="background-color: #2D2F57;"></a>
+            <a href="#red" style="background-color: #673232;"></a>
+        </div>
+
+        <div id="content">
+            <%= yield %>
+        </div>
+
+
+
+<ul class="typeahead dropdown-menu"></ul>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <!-- build:js scripts/jquery.js -->
+        <script src="components/jquery/jquery.js"></script>
+        <!-- endbuild -->
+
+        <script src='scripts/coffee.js'></script>
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="components/sass-bootstrap/js/bootstrap-affix.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-alert.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-tooltip.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-modal.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-transition.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-button.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-popover.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-typeahead.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-carousel.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-scrollspy.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-tab.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
