@@ -5,8 +5,7 @@ module Mailvin
       include DataMapper::Resource
       storage_names[:default] = 'mailboxes'
 
-      belongs_to :project
-      has n, :sequences
+      belongs_to :user
 
       property :id, Serial
       property :email, String

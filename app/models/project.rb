@@ -6,18 +6,14 @@ module Mailvin
       storage_names[:default] = 'projects'
 
       belongs_to :user
-      has n, :mailboxes
+      has n, :sequences
       has n, :schedules
 
       property :id, Serial
       property :name, String
 
       def emails
-        begin
-          self.mailboxes.sequences.emails
-        rescue
-          []
-        end
+        self.sequences.emails
       end
     end
   end

@@ -34,7 +34,6 @@ module Mailvin
         # contextio.accounts[emails.sequence.mailbox.contextio_id]
       end
 
-
       post '/' do
         puts 'schedule controller post received'
         # puts params['message-headers']

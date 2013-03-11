@@ -50,6 +50,10 @@ module Mailvin
         end
       end
 
+      not_found do
+        erb :'404', :layout => false
+      end
+
       # Custom error page for unauthorized requests.
       error 401 do
         erb :'401', :layout => :layout_blank
@@ -149,60 +153,62 @@ module Mailvin
         user = Mailvin::Web::User.create \
           login: 'simon',
           password: 'lulspul',
+          mailboxes: [
+            Mailvin::Web::Mailbox.create(
+              email: 'simonbuelens@gmail.com',
+              authenticated: true,
+              active: true
+            ),
+            Mailvin::Web::Mailbox.create(
+              email: 'simon@gmail.com',
+              authenticated: false,
+              active: false,
+            )
+          ],
           projects: [
             Mailvin::Web::Project.create(
               name: 'test-project',
-              mailboxes: [
-                Mailvin::Web::Mailbox.create(
-                  email: 'simonbuelens@gmail.com',
-                  authenticated: true,
-                  active: true,
-                  sequences: [
-                    Mailvin::Web::Sequence.create(
-                      emails: [
-                        Mailvin::Web::Email.create(
-                          subject: 'Most awesome email evah',
-                          to: 'dumbfuck@tralala.com',
-                          text: 'Hello - Just checking in to see if you got my email.\n\n\nCheers, Simon',
-                          scheduled_at: Time.now + 5.days
-                        ),
-                        Mailvin::Web::Email.create(
-                          subject: 'Most awesome email evah',
-                          to: 'dumbfuck@tralala.com',
-                          text: 'Hi,\n\nIf you prefer to have a skype chat, just add me: simon.buelens.\n\n\nCheers, Simon',
-                          scheduled_at: Time.now + 12.days
-                        ),
-                        Mailvin::Web::Email.create(
-                          subject: 'Most awesome email evah',
-                          to: 'dumbfuck@tralala.com',
-                          text: 'Hello dumb fuck, fuckin answer back already!\n\n\nCheers, Simon',
-                          scheduled_at: Time.now + 25.days
-                        )
-                      ]
+              sequences: [
+                Mailvin::Web::Sequence.create(
+                  emails: [
+                    Mailvin::Web::Email.create(
+                      subject: 'Most awesome email evah',
+                      to: 'dumbfuck@tralala.com',
+                      text: 'Hello - Just checking in to see if you got my email.\n\n\nCheers, Simon',
+                      scheduled_at: Time.now + 5.days
+                    ),
+                    Mailvin::Web::Email.create(
+                      subject: 'Most awesome email evah',
+                      to: 'dumbfuck@tralala.com',
+                      text: 'Hi,\n\nIf you prefer to have a skype chat, just add me: simon.buelens.\n\n\nCheers, Simon',
+                      scheduled_at: Time.now + 12.days
+                    ),
+                    Mailvin::Web::Email.create(
+                      subject: 'Most awesome email evah',
+                      to: 'dumbfuck@tralala.com',
+                      text: 'Hello dumb fuck, fuckin answer back already!\n\n\nCheers, Simon',
+                      scheduled_at: Time.now + 25.days
                     )
                   ]
-                ),
-                Mailvin::Web::Mailbox.create(
-                  email: 'simon@gmail.com',
-                  authenticated: false,
-                  active: false,
                 )
               ],
               schedules: [
                 Mailvin::Web::Schedule.create(
                   name: 'prospects',
                   description: 'use this template to send to potential new prospects',
+                  identifier: 'prospects',
                   templates: [
                     Mailvin::Web::Template.create(
                       delay_type: :precise,
-                      precise_delay: 259200000, #1000*60*60*24*3
+                      precise_delay: 259200000, # 3 days
                       text: 'Hello - Just checking in to see if you got my email.\n\n\nCheers, Simon'
                     )
                   ]
                 ),
                 Mailvin::Web::Schedule.create(
                   name: 'networking',
-                  description: 'use this template when trying to grow my network'
+                  description: 'use this template when trying to grow my network',
+                  identifier: 'networking'
                 )
               ]
             )

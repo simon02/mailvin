@@ -10,11 +10,16 @@ module Mailvin
         @nr_scheduled_emails = project.emails.scheduled.count
         @past_emails = project.emails.past(limit: 10)
         @nr_past_emails = project.emails.past.count
-        @project = project
+        @schedules = project.schedules
+        @mailboxes = current_user.mailboxes
         erb :dashboard
       end
 
       get '/parameter_check' do
+        p params
+      end
+
+      post '/parameter_check' do
         p params
       end
 

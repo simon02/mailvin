@@ -116,13 +116,17 @@
 <div class="row-fluid">
     <div class="span6">
         <div class="widget-box">
-            <div class="widget-title"><span class="icon"><i class="icon-file"></i></span><h5>Templates</h5><span class="label label-info tip-left" data-original-title="54 total posts"><%= @project.schedules.count %></span></div>
+            <div class="widget-title">
+              <span class="icon"><i class="icon-file"></i></span><h5>Templates</h5>
+              <a href='/schedule/new' class='btn btn-primary btn-small'>add template</a>
+              <span class="label label-info tip-left" data-original-title="54 total posts"><%= @schedules.count %></span>
+            </div>
             <div class="widget-content nopadding">
                 <ul class="highlight recent-posts">
-                  <% @project.schedules.each do |schedule| %>
+                  <% @schedules.each do |schedule| %>
                   <li>
                     <div class="body">
-                      <h5 class='title'><%= schedule[:name] %></h5>
+                      <h5 class='title'><%= schedule[:name] %> <small><%= schedule[:identifier] %>@mailvin.org</small></h5>
                       <div class='to'>
                         <%= schedule[:description] %>
                       </div>
@@ -139,11 +143,11 @@
     <div class="span6">
         <div class="widget-box">
             <div class="widget-title">
-              <span class="icon"><i class="icon-comment"></i></span><h5>Mailboxes</h5><span class="label label-info tip-left" data-original-title="<%= @project.mailboxes.count %> mailboxes"><%= @project.mailboxes.count %></span>
+              <span class="icon"><i class="icon-comment"></i></span><h5>Mailboxes</h5><span class="label label-info tip-left" data-original-title="<%= @mailboxes.count %> mailboxes"><%= @mailboxes.count %></span>
             </div>
             <div class="widget-content nopadding">
                 <ul class="highlight recent-comments">
-                  <% @project.mailboxes.each do |mailbox| %>
+                  <% @mailboxes.each do |mailbox| %>
                     <li>
                       <%= mailbox.email %>
                       <% if mailbox.authenticated %>
