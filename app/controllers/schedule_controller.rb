@@ -2,11 +2,36 @@ require 'json'
 
 module Mailvin
   module Web
-    class ScheduleController < Sinatra::Base
+    class ScheduleController < ApplicationController
 
-      get '/' do
-        puts 'schedule controller get received'
-        []
+      get '/new' do
+        erb :schedule
+      end
+
+      # Create a new schedule
+      post '/' do
+        template = params['template']
+        puts template['name']
+        puts template['description']
+        schedule = Mailvin::Web::Schedule.new \
+          name: template['name'],
+          identifier: template['identifier'],
+          description: template['description']
+        current_user.projects.first.schedules << schedule
+        schedule.save
+        current_user.projects.first.save
+        redirect '/'
+      end
+
+      # Update a schedule
+      put '/' do
+      end
+
+      get '/mailgun' do
+        # get all emails that need to be sent within 10 minutes
+        # emails = Mailvin::Web::Email.find :scheduled_at < (Time.now + 10.minutes)
+        # check if contextio has checked the account in the last 10 minutes
+        # contextio.accounts[emails.sequence.mailbox.contextio_id]
       end
 
       post '/' do
@@ -37,6 +62,15 @@ module Mailvin
         'success'
       end
 
+      # post '/' do
+      #   headers = Hash[MultiJson.parse(params['message-headers'])]
+      #   from, to = params[:from], headers['To']
+      #   account = authenticate!(from)
+      #   schedule_name = params[:recipient].split("@").first
+      #   schedule = account.schedule schedule_name
+      #   schedule.generate \
+      #     to: to, from: from, subject: params[:subject],
+      # end
     end
   end
 end

@@ -14,7 +14,7 @@ module Mailvin
     ROOT = File.expand_path '../app', __FILE__
 
     # All file patterns that need to be considered for class/module loading
-    PATTERNS = ['app/controllers/**/*.rb', 'app/helpers/**/*.rb', 'app/models/gossip.rb', 'app/models/survey.rb', 'app/models/survey_status.rb', 'app/jobs/**/*.rb']
+    PATTERNS = ['app/**/*.rb']
 
     # Modules that will be loaded in the application
     @@modules = []
@@ -41,6 +41,8 @@ module Mailvin
         # The module is accessed and thus being loaded
         "Mailvin::Web::#{module_name}".constantize
       end
+      # Finalize DataMapper
+      DataMapper.finalize
       puts "Preloaded" if $debug
     end
 
