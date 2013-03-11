@@ -29,7 +29,10 @@ Mailvin::Web::RACK = Rack::Builder.app do
 
   # Routing for public controllers
   public_routes = {
-    '/schedule'       => Mailvin::Web::ScheduleController
+    '/'               => Mailvin::Web::DashboardController,
+    '/schedule'       => Mailvin::Web::ScheduleController,
+    '/mailbox'        => Mailvin::Web::MailboxController,
+    '/auth'           => Mailvin::Web::AuthenticationController,
   }
 
   # Routing for secured controllers

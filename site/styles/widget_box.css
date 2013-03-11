@@ -1,0 +1,94 @@
+/* line 3, widget_box.scss */
+.widget-box {
+  background: none repeat scroll 0 0 #f9f9f9;
+  border-top: 1px solid #cdcdcd;
+  border-left: 1px solid #cdcdcd;
+  border-right: 1px solid #cdcdcd;
+  clear: both;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+/* line 12, widget_box.scss */
+.widget-box .widget-title {
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#fdfdfd), to(#eaeaea));
+  background-image: -webkit-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+  background-image: -moz-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+  background-image: -ms-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+  background-image: -o-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+  background-image: -linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#eaeaea',GradientType=0 );
+  /* IE6-9 */
+  border-bottom: 1px solid #cdcdcd;
+  height: 36px;
+}
+
+/* line 29, widget_box.scss */
+ul.highlight li:hover {
+  background-color: #f5f5f8;
+}
+
+/* line 33, widget_box.scss */
+ul.scheduled-emails, ul.past-emails {
+  list-style: none;
+  margin: 0;
+}
+/* line 36, widget_box.scss */
+ul.scheduled-emails li, ul.past-emails li {
+  padding: 8px 0;
+  border-bottom: 1px dotted #cdcdcd;
+}
+/* line 39, widget_box.scss */
+ul.scheduled-emails li:last-child, ul.past-emails li:last-child {
+  border-bottom: none;
+}
+/* line 43, widget_box.scss */
+ul.scheduled-emails .timestamp, ul.past-emails .timestamp {
+  float: right;
+  font-size: 18px;
+}
+/* line 46, widget_box.scss */
+ul.scheduled-emails .timestamp .time, ul.past-emails .timestamp .time {
+  display: none;
+  color: #BBB;
+}
+/* line 50, widget_box.scss */
+ul.scheduled-emails .timestamp .date, ul.past-emails .timestamp .date {
+  text-align: center;
+  margin-right: 15px;
+}
+/* line 53, widget_box.scss */
+ul.scheduled-emails .timestamp .date .day, ul.past-emails .timestamp .date .day {
+  font-weight: bold;
+  font-size: 20px;
+  color: #AAA;
+}
+/* line 58, widget_box.scss */
+ul.scheduled-emails .timestamp .date .month, ul.past-emails .timestamp .date .month {
+  display: block;
+  font-size: 12px;
+  color: #BBB;
+}
+/* line 65, widget_box.scss */
+ul.scheduled-emails .body, ul.past-emails .body {
+  margin-left: 15px;
+}
+/* line 67, widget_box.scss */
+ul.scheduled-emails .body .title, ul.past-emails .body .title {
+  margin: 0;
+  font-size: 15px;
+  padding-bottom: 2px;
+  color: #003;
+}
+/* line 73, widget_box.scss */
+ul.scheduled-emails .body .to, ul.past-emails .body .to {
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+}
+/* line 77, widget_box.scss */
+ul.scheduled-emails .body .to .email, ul.past-emails .body .to .email {
+  color: #446;
+  font-style: normal;
+}
