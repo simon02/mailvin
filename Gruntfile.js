@@ -31,7 +31,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/*.erb',
                     '{.tmp,<%= yeoman.app %>}/styles/*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/*.js',
                     '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
@@ -135,9 +135,9 @@ module.exports = function (grunt) {
         },
         // not used since Uglify task does concat,
         // but still available if needed
-        /*concat: {
+        concat: {
             dist: {}
-        },*/
+        },
 
         uglify: {
             dist: {
@@ -150,16 +150,16 @@ module.exports = function (grunt) {
             }
         },
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '<%= yeoman.app %>/layout.erb',
             options: {
                 dest: '<%= yeoman.dist %>'
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/*.html'],
+            html: ['<%= yeoman.dist %>/*.erb'],
             css: ['<%= yeoman.dist %>/styles/*.css'],
             options: {
-                dirs: ['<%= yeoman.dist %>']
+                dirs: ['<%= yeoman.dist %>'],
             }
         },
         imagemin: {
@@ -197,8 +197,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
+                    dot: true,
                     cwd: '<%= yeoman.app %>',
-                    src: '*.html',
+                    src: ['*.erb'],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -253,7 +254,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'jshint',
+        // 'jshint',
         'test',
         'coffee',
         'compass:dist',

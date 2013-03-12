@@ -4,8 +4,7 @@ module Mailvin
 
       # Endpoint accepting incoming emails from mailgun.
       post '/' do
-        headers = Hash[MultiJson.parse(params['message-headers'])]
-        from, to = params[:from], headers['To']
+        from, to = params[:sender], params[:To]
         user = authenticate!(from)
         # schedule identifier is part of the email address before @
         schedule_name = params[:recipient].split("@").first

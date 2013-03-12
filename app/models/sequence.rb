@@ -10,6 +10,7 @@ module Mailvin
       has n, :emails
 
       property :id, Serial
+      property :from, String
     end
   end
 end
